@@ -35,19 +35,17 @@ html, body{
 
 #buttons{
     display: flex;
-    flex-direction: column;
     gap: 16px;
     width: 30vw;
+    border: solid black 1px;
+    justify-content: center;
 }
 
-#firstRow, #secondRow,#thirdRow, #fourthRow, #fifthRow{
+#firstCol, #secondCol,#thirdCol, #fourthCol{
     display: flex;
-    justify-content: space-around;
-    gap: 12px;
-}
-
-#fourthRow{
     justify-content: flex-start;
+    flex-direction: column;
+    gap: 16px;
 }
 
 button{
