@@ -47,6 +47,19 @@ point.addEventListener('click', ()=>{
 
 clear.addEventListener('click', clearE)
 
+del.addEventListener('click', back)
+
+function back(){
+    if (equation.charAt(equation.length-1)=='.') {
+    dotFlag = true
+    equation=equation.slice(0,-1)
+    } else if (equation.charAt(equation.length-1)==' ') {
+    operatorFlag = true
+    equation=equation.slice(0,-3)
+    } else {equation=equation.slice(0,-1)}
+    updateDisplay()
+}
+
 function clearE(){
     operatorFlag=true
     dotFlag=true
@@ -56,6 +69,10 @@ function clearE(){
 
 function updateDisplay(){
     display.textContent = equation
+}
+
+function decimal(number){
+    return Math.floor(number*100)/100
 }
 
 function operate(equ){
@@ -81,7 +98,7 @@ function operate(equ){
     equ.unshift(result)
     equation=result
     if (equ.length==1){
-        equation=result
+        equation=decimal(result)
         return 
     } else {
         operate(equ)
